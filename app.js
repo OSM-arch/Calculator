@@ -1,5 +1,14 @@
 let output = document.getElementById('display');
 
+document.addEventListener('keydown', (event) => {
+    const buttons = document.querySelectorAll('button');
+    for (let button of buttons) {
+        if (event.key == '=') calculate();
+        if (event.key == button.textContent && event.key != '=') display(button.textContent);
+        if (event.key == 'c') clearAll();
+    }
+})
+
 function display(input) {
     output.value += input;
 }
